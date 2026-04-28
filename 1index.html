@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>5 Facts About Blood</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .slider {
+      width: 80%;
+      max-width: 700px;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .slide {
+      display: none;
+      padding: 20px;
+      text-align: center;
+    }
+    .slide.active {
+      display: block;
+    }
+    h2 {
+      color: #b30000;
+    }
+    .details {
+      display: none;
+      margin-top: 10px;
+      font-size: 0.95em;
+      color: #333;
+      text-align: left;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      background: #b30000;
+      color: #fff;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #800000;
+    }
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+    .nav button {
+      background: #333;
+    }
+    .nav button:hover {
+      background: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="slider">
+    <div class="slide active">
+      <h2>Fact 1: Blood Volume</h2>
+      <p>An average adult has about 4–5 liters of blood.</p>
+      <button onclick="toggleDetails(0)">Show Details</button>
+      <div class="details">This makes up about 7–8% of body weight, equivalent to ~13 soda cans.[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://www.factretriever.com/blood-facts?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054&citationId=1 "FactRetriever")</div>
+    </div>
+    <div class="slide">
+      <h2>Fact 2: Blood Components</h2>
+      <p>Blood is made up of plasma, red cells, white cells, and platelets.</p>
+      <button onclick="toggleDetails(1)">Show Details</button>
+      <div class="details">Plasma is ~90% water and carries nutrients; red cells transport oxygen; white cells fight infection; platelets help clotting.[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://facts.net/earth-and-life-science/biology-earth-and-life-science/36-facts-about-blood/?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054&citationId=2 "Facts.net")</div>
+    </div>
+    <div class="slide">
+      <h2>Fact 3: Blood Cell Production</h2>
+      <p>Bone marrow produces millions of blood cells every second.</p>
+      <button onclick="toggleDetails(2)">Show Details</button>
+      <div class="details">About 2 million red blood cells are created each second to replace worn-out cells.[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://www.factretriever.com/blood-facts?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054&citationId=1 "FactRetriever")</div>
+    </div>
+    <div class="slide">
+      <h2>Fact 4: Blood Functions</h2>
+      <p>Blood delivers oxygen and nutrients, removes waste, and regulates temperature.</p>
+      <button onclick="toggleDetails(3)">Show Details</button>
+      <div class="details">It also helps fight infections and maintains stable internal conditions.[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://facts.net/earth-and-life-science/biology-earth-and-life-science/36-facts-about-blood/?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054&citationId=2 "Facts.net")</div>
+    </div>
+    <div class="slide">
+      <h2>Fact 5: Blood is a Tissue</h2>
+      <p>Blood is classified as connective tissue, not just a fluid.</p>
+      <button onclick="toggleDetails(4)">Show Details</button>
+      <div class="details">Because it contains living cells, blood is considered a tissue with structural and functional roles.[43dcd9a7-70db-4a1f-b0ae-981daa162054](https://www.factretriever.com/blood-facts?citationMarker=43dcd9a7-70db-4a1f-b0ae-981daa162054&citationId=1 "FactRetriever")</div>
+    </div>
+    <div class="nav">
+      <button onclick="prevSlide()">Previous</button>
+      <button onclick="nextSlide()">Next</button>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const details = document.querySelectorAll('.details');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        if (i === index) slide.classList.add('active');
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function toggleDetails(index) {
+      const detail = details[index];
+      if (detail.style.display === "block") {
+        detail.style.display = "none";
+      } else {
+        detail.style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
